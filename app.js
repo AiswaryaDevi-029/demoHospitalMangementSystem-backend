@@ -21,6 +21,11 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('✅ Connected to MongoDB Atlas'))
 .catch((err) => console.log('❌ MongoDB Connection Error:', err));
 
+mongoose.connection.once('open', () => {
+  console.log('📌 Connected to Database:', mongoose.connection.db.databaseName);
+});
+
+
 const doctorRoutes = require('./routes/doctors');
 const patientRoutes = require('./routes/patients');
 const appointmentRoutes = require('./routes/appointments');
