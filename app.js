@@ -9,6 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
+
 app.get("/", (req, res) => {
   res.send("Hospital Management System Backend is Running ✅");
 });
